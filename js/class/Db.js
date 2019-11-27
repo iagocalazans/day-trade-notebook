@@ -1,5 +1,6 @@
 class Db {
     trades;
+    
     constructor() {
         this.trades = Array();
     }

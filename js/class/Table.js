@@ -35,7 +35,6 @@ class Table {
                     partial.createPartial(+closePrice.value);
                     object.close(+closePrice.value, +qty.value, true);
                     var update = new CustomEvent("tableClosedUpdate", { 'detail': partial });
-                    console.log(partial, object);
                 } else {
                     object.close(+closePrice.value, qty.value);
                     var update = new CustomEvent("tableClosedUpdate", { 'detail': object });
