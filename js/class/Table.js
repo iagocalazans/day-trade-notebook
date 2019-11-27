@@ -9,7 +9,7 @@ class Table {
         var tdList = Array();
         tdList.push(this.td(object.name));
         tdList.push(this.td(object.qty));
-        tdList.push(this.td(object.price));
+        tdList.push(this.td('US$ '+object.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')));
         if (type == 'opened') {
             var closePrice = this.newElement('input', 'text', 'closePrice');
             tdList.push(this.td(closePrice, 'element'));
@@ -17,8 +17,19 @@ class Table {
             tdList.push(this.td(qty, 'element'));
         }
         if (type == 'closed') {
-            tdList.push(this.td(object.closePrice));
-            tdList.push(this.td(object.value));
+            tdList.push(this.td('US$ '+object.closePrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')));
+            var value = object.value;
+            if ((object.action == 'Buy') && (value > 0)) {
+                tdList.push(this.td('US$ '+value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'), null, 'text-success'));
+            } else if ((object.action == 'Buy') && (value < 0)){
+                tdList.push(this.td('US$ '+value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'), null, 'text-danger'));
+            }
+
+            if ((object.action == 'Sell') && (value < 0)) {
+                tdList.push(this.td('US$ '+value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'), null, 'text-danger'));
+            } else if ((object.action == 'Sell') && (value > 0)){
+                tdList.push(this.td('US$ '+value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'), null, 'text-success'));
+            }
         }
         tdList.push(this.td(object.action));
         tdList.push(this.td(object.getTime()));
@@ -57,13 +68,14 @@ class Table {
         return tr;
     }
 
-    td(value, type = null) {
+    td(value, type = null, classTag) {
         var td = document.createElement('td');
         if (type == 'element') {
             td.appendChild(value);
             return td;
         }
         td.textContent = value;
+        td.classList.add(classTag);
         return td;
     }
 

@@ -53,9 +53,9 @@ class Trade {
         var calc = (this.price - this.closePrice) * this.qty;
 
         if (this.action == 'Buy') {
-            return +(calc * -1).toFixed(2);
+            return (calc * -1);
         } else {
-            return +(calc).toFixed(2);
+            return (calc);
         }
     }
 

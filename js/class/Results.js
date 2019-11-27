@@ -1,19 +1,30 @@
 class Results {
-    totalOperations = 0;
-    winningOperations = 0;
-    losingOperations = 0;
-    percentageGain = 0;
-    percentageLoss = 0;
-    amountGain = 0;
-    amountLoss = 0;
-    totalResult = 0;
-    averageGain = 0;
-    averageLoss = 0;
-    highestGain = 0;
-    highestLoss = 0;
+    totalOperations;
+    winningOperations;
+    losingOperations;
+    percentageGain;
+    percentageLoss;
+    amountGain;
+    amountLoss;
+    totalResult;
+    averageGain;
+    averageLoss;
+    highestGain;
+    highestLoss;
 
     constructor() {
-
+        this.totalOperations = 0;
+        this.winningOperations = 0;
+        this.losingOperations = 0;
+        this.percentageGain = 0;
+        this.percentageLoss = 0;
+        this.amountGain = 0;
+        this.amountLoss = 0;
+        this.totalResult = 0;
+        this.averageGain = 0;
+        this.averageLoss = 0;
+        this.highestGain = 0;
+        this.highestLoss = 0;
     }
 
     update(db) {
@@ -39,8 +50,8 @@ class Results {
             }
         }
 
-        this.amountGain = winAmount;
-        this.amountLoss = lossAmount;
+        this.amountGain = +winAmount;
+        this.amountLoss = +lossAmount;
 
         this.winningOperations = win;
         this.losingOperations = loss;
@@ -48,10 +59,11 @@ class Results {
         this.percentageGain = this.percentage(this.winningOperations).toFixed(2);
         this.percentageLoss = this.percentage(this.losingOperations).toFixed(2);
 
-        this.averageGain = this.average('gain').toFixed(2);
-        this.averageLoss = this.average('loss').toFixed(2);
+        this.averageGain = this.average('gain');
+        this.averageLoss = this.average('loss');
 
         this.totalResult = this.amountLoss + this.amountGain;
+        //.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
     }
 
     percentage(prop) {

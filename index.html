@@ -8,90 +8,145 @@
         <link rel="stylesheet" href="css/style.css">
 
     </head>
-    <body>
-        <header>
-            <h1>Day Trade - Notebook</h1>
+    <body class="text-dark">
+        <header class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-center">
+                <h1 class="text-white">Day Trade - Notebook</h1>
+            </div>
         </header>
 
         <main>
-            <section id="newTrade">
-                <h2>New trade</h2>
-                <form id="newTradeForm">
-                    Stock name: <input type="text" name="name" value="">
-                    Entry price: <input type="text" name="price" value="">
-                    Stock quantity: <input type="text" name="qty" value="">
-                    Action <select class="" name="action">
-                        <option value=""></option>
-                        <option value="Buy">Buy</option>
-                        <option value="Sell">Sell</option>
-                    </select>
-                    <button id="newTradeBtn" type="button" name="newTradeBtn">Set operation</button>
-                </form>
+            <section id="newTrade" class="mb-5 mt-5">
+                <div class="container">
+                    <h2>New trade</h2>
+                    <form id="newTradeForm">
+                        <div class="row mb-1">
+                            <div class="input-group col-md-3 col-sm-12 mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Stock Name</span>
+                                </div>
+                                <input type="text" name="name" class="form-control">
+                            </div>
+                            <div class="input-group col-md-3 col-sm-12 mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Entry Price</span>
+                                </div>
+                                <input type="text" name="price" class="form-control">
+                            </div>
+                            <div class="input-group col-md-3 col-sm-12 mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Amount</span>
+                                </div>
+                                <input type="text" name="qty" class="form-control">
+                            </div>
+                            <div class="input-group col-md-3 col-sm-12 mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Buy/Sell</span>
+                                </div>
+                                <select name="action"  class="form-control">
+                                    <option value=""></option>
+                                    <option value="Buy">Buy</option>
+                                    <option value="Sell">Sell</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button id="newTradeBtn" type="button" name="newTradeBtn" class="btn btn-primary btn-lg btn-block">Set operation</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </section>
 
-            <section id="execTrades">
-                <h2>Executing trades</h2>
+            <section id="execTrades" class="mb-5">
+                <div class="container">
+                    <h2>Executing trades</h2>
 
-                <table id="execTradesTable">
-                    <thead>
-                        <tr>
-                            <th>Stock</th>
-                            <th>Qty</th>
-                            <th>Entry price</th>
-                            <th>Exit price</th>
-                            <th>Qty</th>
-                            <th>Action</th>
-                            <th>Date time</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Show the executing trades here! -->
-                    </tbody>
-                </table>
+                    <table id="execTradesTable" class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Stock</th>
+                                <th>Amount</th>
+                                <th>Entry Price</th>
+                                <th>Exit Price</th>
+                                <th>Exit Amount</th>
+                                <th>Action</th>
+                                <th>Date Time</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Show the executing trades here! -->
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
-            <section id="closedTrades">
-                <h2>Closed trades</h2>
+            <section id="closedTrades" class="mb-5">
+                <div class="container">
+                    <h2>Closed trades</h2>
 
-                <table id="closedTradesTable">
-                    <thead>
-                        <tr>
-                            <th>Stock</th>
-                            <th>Qty</th>
-                            <th>Entry price</th>
-                            <th>Exit price</th>
-                            <th>Win/Loss</th>
-                            <th>Action</th>
-                            <th>Date time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Show de closed trades here! -->
-                    </tbody>
-                </table>
-
+                    <table id="closedTradesTable" class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Stock</th>
+                                <th>Amount</th>
+                                <th>Entry Price</th>
+                                <th>Exit Price</th>
+                                <th>Win/Loss</th>
+                                <th>Action</th>
+                                <th>Date Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Show de closed trades here! -->
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
 
-            <section id="results">
-                <h2>Results</h2>
-                <p class="totalOperations">Total of operations: <span class="value">0</span></p>
-                <p class="winningOperations">Winning operations: <span class="value">0</span></p>
-                <p class="losingOperations">Losing operations: <span class="value">0</span></p>
-                <p class="percentageGain">Gain %: <span class="value">0</span></p>
-                <p class="percentageLoss">Loss %: <span class="value">0</span></p>
-                <p class="averageGain">Average gain: <span class="value">0</span></p>
-                <p class="averageLoss">Average loss: <span class="value">0</span></p>
-                <p class="highestGain">Highest gain: <span class="value"></span></p>
-                <p class="highestLoss">Highest loss: <span class="value"></span></p>
+            <section id="results" class="mb-5">
+                <div class="container">
+                    <h2>Results</h2>
+                    <div class="row text-center mt-5">
+                        <div class="col-md-3 col-sm-6">
+                            <p class="totalOperations">Total of operations: <span class="value">0</span></p>
+                            <p class="winningOperations text-success">Winning operations: <span class="value">0</span></p>
+                            <p class="losingOperations text-danger">Losing operations: <span class="value">0</span></p>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <p class="percentageGain text-success">Gain %: <span class="value">0</span></p>
+                            <p class="percentageLoss text-danger">Loss %: <span class="value">0</span></p>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <p class="averageGain text-success">Average gain: US$ <span class="value">0</span></p>
+                            <p class="averageLoss text-danger">Average loss: US$ <span class="value">0</span></p>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <p class="highestGain text-success">Highest gain: US$ <span class="value">0</span></p>
+                            <p class="highestLoss text-danger">Highest loss: US$ <span class="value">0</span></p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="summary">
-                <h2>Summary</h2>
-                <h3 class="amountGain">Total Gains: <span>0</span></h3>
-                <h3 class="amountLoss">Total Loss: <span>0</span></h3>
-                <h3 class="totalResult">Daily Result: <span>0</span></h3>
+                <div class="container">
+                    <h2>Summary</h2>
+                    <div class="row text-center mt-5 mb-5">
+                        <div class="col-md-4 col-sm-12">
+                            <h3 class="amountGain text-success">Total Gains: US$ <span>0</span></h3>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <h3 class="amountLoss text-danger">Total Loss: US$ <span>0</span></h3>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <h3 class="totalResult text-primary">Daily Result: US$ <span>0</span></h3>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
 
@@ -102,7 +157,6 @@
         <script type="text/javascript" src="js/class/Db.js"></script>
         <script type="text/javascript" src="js/class/Trade.js"></script>
         <script type="text/javascript" src="js/class/Table.js"></script>
-        <script type="text/javascript" src="js/class/Operations.js"></script>
         <script type="text/javascript" src="js/class/Results.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
 
