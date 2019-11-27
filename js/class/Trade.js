@@ -28,8 +28,7 @@ class Trade {
         }
         this.status = 0;
         this.closePrice = price;
-        var calc = new Operations(this);
-        this.value = calc.value();
+        this.value = this.getValue();
         this.datetime = Date.now();
         return false;
     }
@@ -38,8 +37,7 @@ class Trade {
         document.dispatchEvent(new CustomEvent("newPartialUpdate", { 'detail': this }));
         this.status = 0;
         this.closePrice = price;
-        var calc = new Operations(this);
-        this.value = calc.value();
+        this.value = this.getValue();
     }
 
     getTime() {
@@ -49,6 +47,16 @@ class Trade {
 
     n(n){
         return n > 9 ? "" + n: "0" + n;
+    }
+
+    getValue() {
+        var calc = (this.price - this.closePrice) * this.qty;
+
+        if (this.action == 'Buy') {
+            return +(calc * -1).toFixed(2);
+        } else {
+            return +(calc).toFixed(2);
+        }
     }
 
 }
