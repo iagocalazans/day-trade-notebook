@@ -31,20 +31,20 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Entry Price</span>
                                 </div>
-                                <input type="text" name="price" class="form-control">
+                                <input type="text" name="price" class="form-control newTradePrice">
                             </div>
                             <div class="input-group col-md-3 col-sm-12 mb-2">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Amount</span>
                                 </div>
-                                <input type="text" name="qty" class="form-control">
+                                <input type="text" name="qty" class="form-control newTradeQty">
                             </div>
                             <div class="input-group col-md-3 col-sm-12 mb-2">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Buy/Sell</span>
                                 </div>
-                                <select name="action"  class="form-control">
-                                    <option value=""></option>
+                                <select name="action"  class="form-control newTradeAction">
+                                    <option value="0"></option>
                                     <option value="Buy">Buy</option>
                                     <option value="Sell">Sell</option>
                                 </select>
@@ -65,7 +65,7 @@
 
                     <table id="execTradesTable" class="table text-center">
                         <thead>
-                            <tr>
+                            <tr class="font-weight-bold">
                                 <th>Stock</th>
                                 <th>Amount</th>
                                 <th>Entry Price</th>
@@ -89,7 +89,7 @@
 
                     <table id="closedTradesTable" class="table text-center">
                         <thead>
-                            <tr>
+                            <tr class="font-weight-bold">
                                 <th>Stock</th>
                                 <th>Amount</th>
                                 <th>Entry Price</th>
@@ -110,7 +110,7 @@
             <section id="results" class="mb-5">
                 <div class="container">
                     <h2>Results</h2>
-                    <div class="row text-center mt-5">
+                    <div class="row text-center mt-5 font-weight-bold">
                         <div class="col-md-3 col-sm-6">
                             <p class="totalOperations">Total of operations: <span class="value">0</span></p>
                             <p class="winningOperations text-success">Winning operations: <span class="value">0</span></p>

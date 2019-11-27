@@ -9,7 +9,38 @@ var newTradeBtn = document.getElementById('newTradeBtn');
 newTradeBtn.addEventListener('click', function(event) {
     var newTradeForm = new FormData(document.getElementById('newTradeForm'));
 
-    var trade = new Trade(newTradeForm.get('name'), newTradeForm.get('price'), newTradeForm.get('qty'), newTradeForm.get('action'));
+    if (typeof newTradeForm.get('price') !== 'number') {
+        var price = document.querySelector('.newTradePrice');
+        if (newTradeForm.get('price') == "") {
+            price.classList.add('is-invalid');
+            return false;
+        } else {
+            price.classList.remove('is-invalid');
+        }
+        var str = newTradeForm.get('price');
+        var float = str.replace(",",".");
+    } else {
+        var float = newTradeForm.get('price');
+    }
+
+    var qty = document.querySelector('.newTradeQty');
+    if (newTradeForm.get('qty') < 1) {
+        var qty = document.querySelector('.newTradeQty');
+        qty.classList.add('is-invalid');
+        return false;
+    } else {
+        qty.classList.remove('is-invalid');
+    }
+
+    var action = document.querySelector('.newTradeAction');
+    if (newTradeForm.get('action') == "0"){
+        action.classList.add('is-invalid');
+        return false;
+    } else {
+        action.classList.remove('is-invalid');
+    }
+
+    var trade = new Trade(newTradeForm.get('name'), float, newTradeForm.get('qty'), newTradeForm.get('action'));
 
     var tradeId = db.add(trade);
     trade.setId(tradeId);

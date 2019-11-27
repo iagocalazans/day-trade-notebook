@@ -63,7 +63,6 @@ class Results {
         this.averageLoss = this.average('loss');
 
         this.totalResult = this.amountLoss + this.amountGain;
-        //.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
     }
 
     percentage(prop) {
