@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Day Trade - Notebook</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body>
+        <header>
+            <h1>Day Trade - Notebook</h1>
+        </header>
+
+        <main>
+            <section id="newTrade">
+                <h2>New trade</h2>
+                <form id="newTradeForm">
+                    Stock name: <input type="text" name="name" value="">
+                    Entry price: <input type="text" name="price" value="">
+                    Stock quantity: <input type="text" name="qty" value="">
+                    Action <select class="" name="action">
+                        <option value=""></option>
+                        <option value="Buy">Buy</option>
+                        <option value="Sell">Sell</option>
+                    </select>
+                    <button id="newTradeBtn" type="button" name="newTradeBtn">Set operation</button>
+                </form>
+            </section>
+
+            <section id="execTrades">
+                <h2>Executing trades</h2>
+
+                <table id="execTradesTable">
+                    <thead>
+                        <tr>
+                            <th>Stock</th>
+                            <th>Qty</th>
+                            <th>Entry price</th>
+                            <th>Exit price</th>
+                            <th>Qty</th>
+                            <th>Action</th>
+                            <th>Date time</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Show the executing trades here! -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="closedTrades">
+                <h2>Closed trades</h2>
+
+                <table id="closedTradesTable">
+                    <thead>
+                        <tr>
+                            <th>Stock</th>
+                            <th>Qty</th>
+                            <th>Entry price</th>
+                            <th>Exit price</th>
+                            <th>Win/Loss</th>
+                            <th>Action</th>
+                            <th>Date time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Show de closed trades here! -->
+                    </tbody>
+                </table>
+
+            </section>
+
+
+            <section id="results">
+                <h2>Results</h2>
+                Total of operations: 2<br />
+                Winning operations: 0<br />
+                Losing operations: 2<br />
+                Gain %: 0<br />
+                Loss %: 100<br />
+                Average gain per operation: 0<br />
+                Average loss per operation: -500<br />
+                Highest gain: 0<br />
+                Highest loss: -500
+            </section>
+
+            <section id="summary">
+                <h2>Summary</h2>
+                <h3>Total gains: 0</h3>
+                <h3>Total loss: 1,000</h3>
+                <h3>Daily results: -1,000</h3>
+            </section>
+        </main>
+
+        <footer>
+
+        </footer>
+
+        <script type="text/javascript" src="js/class/Db.js"></script>
+        <script type="text/javascript" src="js/class/Trade.js"></script>
+        <script type="text/javascript" src="js/class/Table.js"></script>
+        <script type="text/javascript" src="js/class/Operations.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+
+    </body>
+</html>
